@@ -28,7 +28,7 @@ io.on('connection', socket => {
    
     socket.on('send_comment', async data => {
         const savecomment = await saveComment(data)
-        io.emit('send_saved_comments', ({ data: savecomment.reverse(), socket_id: socket.id }))
+        io.emit('send_saved_comments', ({ data: savecomment.reverse() }))
         socket.emit('msg_status', { sent: 1 })
     })
 
